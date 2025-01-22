@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task</title>
+  <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='edit_task.css') }}"
+/>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Edit Task</h1>
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="POST">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="{{ task.title }}" required />
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4" required>{{ task.description }}</textarea>
+
+      <label for="deadline">Deadline</label>
+      <input type="date" id="deadline" name="deadline" value="{{ task.deadline }}" min="{{ current_date }}" required />
+
+
+      <label for="task_type">Task Type</label>
+      <select id="task_type" name="task_type" required>
+        {% for type in task_types %}
+        <option value="{{ type.type }}" {% if task.task_type == type.type %}selected{% endif %}>
+          {{ type.type }}
+        </option>
+        {% endfor %}
+      </select>
+
+      <div class="btn-container">
+        <button type="submit" class="btn btn-save">Save Changes</button>
+        <button type="button" class="btn btn-cancel" onclick="window.location.href='/tasks'">Cancel</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

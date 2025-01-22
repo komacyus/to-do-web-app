@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task Type</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='add_task_type.css') }}"
+    />
+  </head>
+  <body>
+    {% include 'navigation_bar.html' %}
+
+    <div class="form-container">
+      <h1>Add Task Type</h1>
+      {% if error %}
+      <div class="error">{{ error }}</div>
+      {% endif %}
+      <form method="POST">
+        <label for="task_type">Task Type</label>
+        <input
+          type="text"
+          id="task_type"
+          name="task_type"
+          placeholder="Enter task type (e.g., Work, Personal)"
+          required
+        />
+
+        <div class="btn-container">
+          <button type="submit" class="btn btn-save">Add Task Type</button>
+        </div>
+      </form>
+
+      <h2>Existing Task Types</h2>
+      <ul class="task-types-list">
+        {% for task_type in task_types %}
+        <li>{{ task_type['type'] }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

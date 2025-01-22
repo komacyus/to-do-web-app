@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - To-Do List</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='register.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register</h1>
+      <p>You must be really excited to keep track of your tasks!</p>
+      <form method="POST">
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter your username"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+      {% if message %}
+      <div class="message">{{ message }}</div>
+      {% endif %}
+      <div class="footer">
+        Been here before? <a href="/login">Log in</a> instead!
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<div class="header">
+  <a href="/tasks" style="text-decoration: none">
+    <h1 style="color: whitesmoke">Welcome, {{ session['username'] }}!</h1>
+  </a>
+  <nav class="navbar">
+    <a href="/tasks">Home</a>
+    <a href="/add_task">Add Task</a>
+    <a href="/add_task_type">Add Task Type</a>
+    <a href="/analysis">Analysis</a>
+    <form method="POST" action="/logout" style="display: inline">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form>
+  </nav>
+</div>
