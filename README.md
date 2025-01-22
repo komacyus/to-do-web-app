@@ -1,5 +1,5 @@
 # to-do-web-app
-generic Todo-list application where users can manage their todo list using Python, Flask, MySQL, and Docker Compose.
+A generic Todo-list application where users can manage their todo list using Python, Flask, MySQL, and Docker Compose.
 
 
 To build the image use: docker build -t to-do-app .
